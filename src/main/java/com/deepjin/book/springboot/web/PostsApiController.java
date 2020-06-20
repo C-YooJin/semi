@@ -1,6 +1,7 @@
 package com.deepjin.book.springboot.web;
 
 import com.deepjin.book.springboot.service.posts.PostsService;
+import com.deepjin.book.springboot.web.dto.PostsResponseDto;
 import com.deepjin.book.springboot.web.dto.PostsSaveRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,11 @@ public class PostsApiController {
     @PostMapping("/api/v1/posts")
     public Long save(@RequestBody PostsSaveRequestDto requestDto) {
         return postsService.save(requestDto);
+    }
+
+    @PutMapping("/api/v1/posts/{id}")
+    public Long update(@PathVariable Long id, @RequestBody PostsSaveRequestDto requestDto) {
+        return postsService.update(id, requestDto);
     }
 
     @GetMapping("/api/v1/posts/{id}")
