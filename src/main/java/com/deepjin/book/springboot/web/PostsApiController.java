@@ -1,6 +1,6 @@
 package com.deepjin.book.springboot.web;
 
-import com.deepjin.book.springboot.service.posts.PostsService;
+import com.deepjin.book.springboot.service.PostsService;
 import com.deepjin.book.springboot.web.dto.PostsResponseDto;
 import com.deepjin.book.springboot.web.dto.PostsSaveRequestDto;
 import com.deepjin.book.springboot.web.dto.PostsUpdateRequestDto;
