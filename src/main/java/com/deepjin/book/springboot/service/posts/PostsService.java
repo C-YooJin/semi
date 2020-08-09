@@ -1,13 +1,17 @@
-package com.deepjin.book.springboot.service.posts;
+package com.jojoldu.book.springboot.service;
 
 import com.deepjin.book.springboot.domain.posts.Posts;
 import com.deepjin.book.springboot.domain.posts.PostsRepository;
+//import com.deepjin.book.springboot.web.dto.PostsListResponseDto;
 import com.deepjin.book.springboot.web.dto.PostsResponseDto;
+import com.deepjin.book.springboot.web.dto.PostsSaveRequestDto;
 import com.deepjin.book.springboot.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.deepjin.book.springboot.web.dto.PostsSaveRequestDto;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -20,9 +24,11 @@ public class PostsService {
     }
 
     @Transactional
-    public Long update(Long id, PostsUpdateRequestDto requestsDto) {
-        Posts posts = postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다. id=" + id));
-        posts.update(requestsDto.getTitle(), requestsDto.getContent());
+    public Long update(Long id, PostsUpdateRequestDto requestDto) {
+        Posts posts = postsRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("해당 사용자가 없습니다. id=" + id));
+
+        posts.update(requestDto.getTitle(), requestDto.getContent());
 
         return id;
     }
