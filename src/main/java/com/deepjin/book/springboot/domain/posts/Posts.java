@@ -38,5 +38,6 @@ public class Posts {
         this.title = title;
         this.content = content;
     }
+
 }
 
