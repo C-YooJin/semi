@@ -10,4 +10,9 @@ public class IndexController {
     public String index() {
         return "index"; // view resolver가 처리한다.. index뒤에 확장자는 알아서 찾아줌.
     }
+
+    @GetMapping("/posts/save")
+    public String postsSave() {
+        return "posts-save";
+    }
 }
